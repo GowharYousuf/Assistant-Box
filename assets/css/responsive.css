@@ -1,0 +1,100 @@
+@media screen and (max-width:641px) {
+    body{
+        background-color: red;
+    }
+    #mydiv {
+      position: absolute;
+      z-index: 10 ;
+      width:350px;
+      max-height:600px;
+      background-color:transparent;
+      text-align: center;
+    }
+    #mydivheader {
+      cursor:move;
+      width:70px;
+      height:100px;
+      margin-left:100%;
+      background-color: transparent !important;
+      z-index: 1;
+      opacity:1;
+    }
+    .multiSteps_panel{
+      margin-top: -80px;
+    }
+    h1,h4{
+      font-weight:10px;
+      padding:5px;
+    }
+    p{
+      font-weight: 10px;
+      line-height: 20px;
+    }
+}
+
+
+
+
+
+
+/* 
+@media (min-width: 320px) and (max-width: 480px) {
+    #mydiv {
+        position: absolute;
+        z-index: 10 ;
+        width:400px;
+        height:600px;
+        background-color:transparent;
+        text-align: center;
+      }
+      #mydivheader {
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+      }
+      .multiSteps_panel{
+        margin-top: -70px;
+      }
+ } */
+/* 
+ @media (min-width: 480px) and (max-width: 760px) {
+    #mydiv {
+        position: absolute;
+        z-index: 10 ;
+        width:500px;
+        height:600px;
+        background-color:transparent;
+        text-align: center;
+      }
+      #mydivheader {
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+      }
+      .multiSteps_panel{
+        margin-top: -70px;
+      }
+ }
+ @media (min-width: 200px) and (max-width: 300px) {
+    #mydiv {
+        position: absolute;
+        z-index: 10 ;
+        width:300px;
+        height:1200px;
+        background-color:transparent;
+        text-align: center;
+      }
+      #mydivheader {
+        padding: 10px;
+        cursor: move;
+        z-index: 10;
+      }
+      .multiSteps_panel{
+        margin-top: -70px;
+      }
+      .content {
+        width: 95%;
+        margin: 0 auto 0px;
+
+    }
+ } */
