@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/bootstrap-ajax-min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css"> 
+    <link href="demo-includes/bootstrap.min.css" rel="stylesheet">
+    <script>
+        function changeOpacity(val){
+            let content=document.getElementById("mydiv");
+            content.style.opacity=val;
+            
+        }
+    </script>
+    <script>
+        window.onload = function() {
+            // find the element that you want to drag.
+            var box = document.getElementById('mydiv');
+            
+            /* listen to the touchMove event,
+            every time it fires, grab the location
+            of touch and assign it to box */
+            
+            box.addEventListener('touchmove', function(e) {
+              // grab the location of touch
+              var touchLocation = e.targetTouches[0];
+              
+              // assign box new coordinates based on the touch.
+              box.style.left = touchLocation.pageX + 'px';
+              box.style.top = touchLocation.pageY + 'px';
+            })
+            
+            /* record the position of the touch
+            when released using touchend event.
+            This will be the drop position. */
+            
+            box.addEventListener('touchend', function(e) {
+              // current box position.
+              var x = parseInt(box.style.left);
+              var y = parseInt(box.style.top);
+            })
+            
+          }
+    </script>
+</head>
+<body>
+    <div class="popup" id="popup-1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate debitis necessitatibus vitae corporis maxime in, architecto tempora vero ducimus praesentium voluptatibus neque molestias? Et animi est beatae esse impedit eum!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo, eum! Optio accusamus ex odit consequatur alias cum quis culpa! Ullam aperiam alias inventore natus quod iure, totam eligendi similique quibusdam.</p>
+        <div id="mydiv">
+            <div id="mydivheader">
+                <div class="slider-container">
+                    <button class="drag-bar-btn" style="background-image: url(assets/images/Drag-10-12-2023.gif);">Drag</button>
+                    <button class="arrow up">▲</button>
+                    <div class="slider">
+                        <div class="icons">
+                            <div class="icon">
+                                <button onclick="togglePopup()" class="vertical-bar-btn" style="background-image:url(assets/images/edit-icon-png-3603.png);background-size:cover">Edit </button>
+                            </div>
+                            <div class="icon">
+                                <button onclick="togglePopup()" class="vertical-bar-btn" style="background-image:url(assets/images/download-icon-png-4388.png);background-size:cover">Save</button>
+                            </div>
+                            <div class="icon">
+                                <button onclick="togglePopup()" class="vertical-bar-btn" style="background-image:url(assets/images/delete-button-png-28580.png);background-size:cover">Edit</button>
+                            </div>
+                            <div class="icon">
+                                <button onclick="togglePopup()" class="vertical-bar-btn" style="background-image:url(assets/images/edit-icon-png-3603.png);background-size:cover">Fill</button>
+                            </div>
+                            <div class="icon">
+                                <button onclick="togglePopup()" class="vertical-bar-btn" style="background-image:url(assets/images/download-icon-png-4388.png);background-size:cover">Del</button>
+                            </div>
+                            <div class="icon">
+                                <button onclick="togglePopup()" class="vertical-bar-btn" style="background-image:url(assets/images/delete-button-png-28580.png);background-size:cover">Close</button>
+                            </div>
+                            <!-- Add more icons as needed -->
+                        </div>
+                        
+                    </div>
+                    <button class="arrow down">▼</button>
+                </div>
+            </div>
+                <script>
+                                    const slider = document.querySelector('.slider');
+                            const icons = document.querySelector('.icons');
+                            const arrowUp = document.querySelector('.arrow.up');
+                            const arrowDown = document.querySelector('.arrow.down');
+                            
+                            const sliderHeight = slider.clientHeight;
+                            const iconsHeight = icons.clientHeight;
+                            
+                            let position = 0;
+                            
+                            arrowUp.addEventListener('click', () => {
+                            position = Math.min(position + 60, 0);
+                            updateIconsPosition();
+                            });
+                            
+                            arrowDown.addEventListener('click', () => {
+                            position = Math.max(position - 60, sliderHeight - iconsHeight);
+                            updateIconsPosition();
+                            });
+                            
+                            function updateIconsPosition() {
+                            icons.style.top = position + 'px';
+                            }
+                            
+                  </script>
+                    <div class="content" id="content">
+                        <input type="range" min="40" max="100" value="100" oninput="changeOpacity(this.value/100)" id="range">
+                        <div class="row justify-content-center">
+                            <div class="col">
+                                <div class=" assistant-box">
+                                    <h1>Assistant Box</h1>
+                                    <div class="content_inner">
+                                        <div class="container overflow-hidden">
+                                            <div class="multiStepsForm">
+                                                <!-- progress -->
+                                                <div class="row">
+                                                    <div class="col-12 ml-auto mr-auto mb-4 mt-2">
+                                                        <div class="multiSteps_progress">
+                                                            <button class="multiSteps_progressBtn js-active" type="button"
+                                                                title="Product Category">
+                                                                Edit 
+                                                            </button>
+                                                            <button class="multiSteps_progressBtn" type="button"
+                                                                title="Name & Description">
+                                                                Replace
+                                                            </button>
+                                                            <button class="multiSteps_progressBtn" type="button" title="Attributes">
+                                                              Delete
+                                                            </button>
+                                                            <button class="multiSteps_progressBtn" type="button" title="Attachments">
+                                                                Share
+                                                            </button>
+                                                            <button class="multiSteps_progressBtn" type="button" title="Preview & send">
+                                                                Details
+                                                            </button>
+                                                            <button class="multiSteps_progressBtn" type="button" title="Preview & Send">
+                                                                Preview and Save
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- /progress -->
+                
+                                                <div class="row">
+                                                    <div class="col-12 m-auto">
+                                                        <!-- form -->
+                                                        <form class="multiSteps_form">
+                                                            <!-- first step -->
+                                                            <div class="multiSteps_panel p-4 rounded  js-active"
+                                                                data-animation="slideHorz">
+                                                                <h4>Edit</h4>
+                                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, laboriosam et quam minima corrupti possimus perspiciatis cupiditate veniam iure, temporibus ipsam amet quia natus molestiae distinctio! Reiciendis enim veniam excepturi!</p>
+                                                                <button class="btn btn-primary ml-auto "
+                                                                type="button" onclick="" >Edit</button>
+                                                                <div class="row">
+                                                                    <div class="button-row d-flex mt-4 col-12">
+                                                                        <button class="btn btn-primary "
+                                                                            type="button" onclick="togglePopup()">close</button>
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" title="Next">Next</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /first step -->
+                                                            <!-- step 2 -->
+                                                            <div class="multiSteps_panel p-4 rounded "
+                                                                data-animation="slideHorz">
+                                                                <h4>Repalce</h4>
+                                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, laboriosam et quam minima corrupti possimus perspiciatis cupiditate veniam iure, temporibus ipsam amet quia natus molestiae distinctio! Reiciendis enim veniam excepturi!</p>
+                                                                <button class="btn btn-primary ml-auto "
+                                                                type="button" onclick="">Replace</button>
+                                                                <div class="row">
+                                                                    <div class="button-row d-flex mt-4 col-12">
+                                                                        <button class="btn btn-primary js-btn-prev" type="button"
+                                                                            title="Prev">Prev</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-close"
+                                                                            type="button" onclick="togglePopup()">close</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" title="Next">Next</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="multiSteps_panel p-4 rounded "
+                                                                data-animation="slideHorz">
+                                                                <h4>Delete</h4>
+                                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, laboriosam et quam minima corrupti possimus perspiciatis cupiditate veniam iure, temporibus ipsam amet quia natus molestiae distinctio! Reiciendis enim veniam excepturi!</p>
+                                                                <button class="btn btn-primary ml-auto "
+                                                                type="button" onclick="">Delete</button>
+                                                                <div class="row">
+                                                                    <div class="button-row d-flex mt-4 col-12">
+                                                                        <button class="btn btn-primary js-btn-prev" type="button"
+                                                                            title="Prev">Prev</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" onclick="togglePopup()">close</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" title="Next">Next</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="multiSteps_panel p-4 rounded "
+                                                                data-animation="slideHorz">
+                                                                <h4>Share</h4>
+                                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, laboriosam et quam minima corrupti possimus perspiciatis cupiditate veniam iure, temporibus ipsam amet quia natus molestiae distinctio! Reiciendis enim veniam excepturi!</p>
+                                                                <button class="btn btn-primary ml-auto "
+                                                                type="button" onclick="">Share</button>
+                                                                <div class="row">
+                                                                    <div class="button-row d-flex mt-4 col-12">
+                                                                        <button class="btn btn-primary js-btn-prev" type="button"
+                                                                            title="Prev">Prev</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" onclick="togglePopup()">close</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" title="Next">Next</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                            <div class="multiSteps_panel p-4 rounded"
+                                                                data-animation="slideHorz">
+                                                                <h4>Details</h4>
+                                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, laboriosam et quam minima corrupti possimus perspiciatis cupiditate veniam iure, temporibus ipsam amet quia natus molestiae distinctio! Reiciendis enim veniam excepturi!</p>
+                                                                <button class="btn btn-primary ml-auto "
+                                                                type="button" onclick="">Details</button>
+                                                                <div class="row">
+                                                                    <div class="button-row d-flex mt-4 col-12">
+                                                                        <button class="btn btn-primary js-btn-prev" type="button"
+                                                                            title="Prev">Prev</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" onclick="togglePopup()">close</button>
+                
+                                                                        <button class="btn btn-primary ml-auto js-btn-next"
+                                                                            type="button" title="Next">Next</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="multiSteps_panel p-4 rounded "
+                                                                data-animation="slideHorz">
+                                                                <h4>Preview and Save</h4>
+                                                                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Error, laboriosam et quam minima corrupti possimus perspiciatis cupiditate veniam iure, temporibus ipsam amet quia natus molestiae distinctio! Reiciendis enim veniam excepturi!</p>
+                                                                <button class="btn btn-primary ml-auto "
+                                                                type="button" onclick="">Preview and save</button>
+                                                                <div class="row">
+                                                                    <div class="button-row d-flex mt-4 col-12">
+                                                                        <button class="btn btn-primary js-btn-prev" type="button"
+                                                                            title="Prev">Prev</button>
+                
+                                                                        <button class="btn btn-primary ml-auto"
+                                                                            type="button" onclick="togglePopup()">close</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                
+                                                        </form>
+                                                        <!-- /form -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <button onclick="togglePopup()" class="first-button">Save</button>
+        <script>
+        function togglePopup() {
+        document.getElementById("popup-1")
+        .classList.toggle("active");
+        }
+        </script>
+        <script src="assets/js/bootstrap.js"></script>
+        <script src="assets/js/index.js"></script>
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/slider.js"></script>
+        <script src="assets/js/jquery.min.js"></script>
+</div>
+</body>
+</html>
